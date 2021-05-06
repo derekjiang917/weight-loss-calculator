@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>Calculator App</h3>
+    </div>
+
+    <!-- Form -->
+    <div class="container">
+        <form action="/send" method="POST">
+            <label for="Current Weight">Current Weight</label>
+            <input type="text" placeholder="first number" class="u-full-width" name="weight"/>
+
+            <label for="Current Bodyfat">Current Bodyfat %</label>
+            <input type="text" placeholder="second number" class="u-full-width" name="cbodyfat"/>
+
+            <label for="Goal Bodyfat">Goal Bodyfat %</label>
+            <input type="text" placeholder="second number" class="u-full-width" name="gbodyfat"/>
+
+            <label for="Goal Bodyfat">Goal Bodyfat %</label>
+            <input type="text" placeholder="0.5lb-1lb" class="u-full-width" name="rate"/>
+
+
+            <input type="submit" value="Calculate" id="calc_btn"/>
+            <br/>
+            <div class="alert">
+                {{lean_mass}}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
