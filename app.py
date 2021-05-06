@@ -26,10 +26,12 @@ def send():
             fast_rate = weight*.01
             slow_tt6 = math.ceil((weight-goal_weight)/slow_rate)
             fast_tt6 = math.ceil((weight-goal_weight)/fast_rate)
+            calories = int(weight*12)
             clean_mass = round(clean_mass, 2)
             glean_mass = round(glean_mass, 2)
             goal_weight = round(goal_weight, 2)
-            return render_template('index.html', clean_mass = clean_mass, glean_mass = glean_mass, goal_weight = goal_weight, slow_tt6 = slow_tt6, fast_tt6 = fast_tt6)
+            return render_template('index.html', clean_mass = clean_mass, glean_mass = glean_mass, goal_weight = goal_weight, 
+            slow_tt6 = slow_tt6, fast_tt6 = fast_tt6, calories = calories)
         else:
             return 'Error: one or more inputs was not a number'
 
