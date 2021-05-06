@@ -33,10 +33,6 @@
             <label for="Goal Bodyfat">Goal Bodyfat %</label>
             <input type="text" placeholder="Goal Bodyfat %" class="u-full-width" name="gbodyfat"/>
 
-            <label for="Rate of Weight Loss">Rate of Weight Loss</label>
-            <input type="text" placeholder="Ideally 1-2% of your current weight" class="u-full-width" name="rate"/>
-
-
             <input type="submit" value="Calculate" id="calc_btn"/>
             <br/>
             <div class="alert">
@@ -49,7 +45,7 @@
                 Goal Weight: {{goal_weight}}
             </div>
             <div class="alert">
-                Weeks Until Goal: {{tt6}}
+                Weeks Until Goal: {{fast_tt6}} - {{slow_tt6}}
             </div>
         </form>
     </div>
