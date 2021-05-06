@@ -22,7 +22,7 @@ def send():
             clean_mass = weight*(100-cbodyfat)/100
             glean_mass = clean_mass*.97
             goal_weight = glean_mass/((100-gbodyfat)/100)
-            slow_rate = weight*.005
+            slow_rate = weight*.0075
             fast_rate = weight*.01
             slow_tt6 = math.ceil((weight-goal_weight)/slow_rate)
             fast_tt6 = math.ceil((weight-goal_weight)/fast_rate)
