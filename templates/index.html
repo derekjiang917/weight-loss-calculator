@@ -23,13 +23,14 @@
     <div class="container">
         <form action="/" method="POST">
             <label for="Current Weight">Current Weight</label>
-            <input type="text" placeholder="Current Weight" class="u-full-width" name="weight" value="{{request.form['weight']}}"/>
+            <input required type="number" placeholder="Current Weight" class="u-full-width" name="weight" min="1" value="{{request.form['weight']}}"/>
 
             <label for="Current Bodyfat">Current Bodyfat %</label>
-            <input type="text" placeholder="Current Bodyfat %" class="u-full-width" name="cbodyfat" value="{{request.form['cbodyfat']}}"/>
+            <input required type="number" placeholder="Current Bodyfat %" class="u-full-width" name="cbodyfat" min="1" max="100" value="{{request.form['cbodyfat']}}"
+             onchange="document.getElementById('gbodyfat').max=this.value-1;" id="cbodyfat"/>
 
             <label for="Goal Bodyfat">Goal Bodyfat %</label>
-            <input type="text" placeholder="Goal Bodyfat %" class="u-full-width" name="gbodyfat" value="{{request.form['gbodyfat']}}"/>
+            <input required type="number" placeholder="Goal Bodyfat %" class="u-full-width" name="gbodyfat" min="1" max="{{ request.form['cbodyfat'] }}" value="{{request.form['gbodyfat']}}" id="gbodyfat"/>
 
             <input type="submit" value="Calculate" id="calc_btn"/>
             <br/>
