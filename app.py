@@ -42,8 +42,9 @@ def index():
                 clean_mass = round(clean_mass, 2)
                 glean_mass = round(glean_mass, 2)
                 goal_weight = round(goal_weight, 2)
+                weights = Data.query.order_by(Data.date_created.desc()).all()
                 return render_template('index.html', clean_mass = clean_mass, glean_mass = glean_mass, goal_weight = goal_weight, 
-                slow_tt6 = slow_tt6, fast_tt6 = fast_tt6, calories = calories)
+                slow_tt6 = slow_tt6, fast_tt6 = fast_tt6, calories = calories, weights = weights)
             else:
                 return 'Error: one or more inputs was not a number'
         except:
