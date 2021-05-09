@@ -21,7 +21,7 @@
 
     <!-- Form -->
     <div class="container">
-        <form action="/send" method="POST">
+        <form action="/" method="POST">
             <label for="Current Weight">Current Weight</label>
             <input type="text" placeholder="Current Weight" class="u-full-width" name="weight"/>
 
@@ -49,5 +49,28 @@
                 Weeks Until Goal: {{fast_tt6}} - {{slow_tt6}}
             </div>
         </form>
+    </div>
+    <div class="container">
+        {% if weights|length < 1 %}
+        {%else%}
+        <table>
+            <tr>
+                <th>Weight</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+            {%for weight in weights%}
+                <tr>
+                    <td>{{weight.weight}}</td>
+                    <td>{{weight.date_created.date()}}</td>
+                    <td>
+                        <a href="/delete/{{weight.id}}">Delete</a>
+                        <br>
+                        <a href="/update/{{weight.id}}">Update</a>
+                    </td>
+                </tr>
+            {%endfor%}
+        </table>
+        {%endif%}
     </div>
 {%endblock%}
