@@ -30,7 +30,8 @@
              onchange="document.getElementById('gbodyfat').max=this.value-1;" id="cbodyfat"/>
 
             <label for="Goal Bodyfat">Goal Bodyfat %</label>
-            <input required type="number" placeholder="Goal Bodyfat %" class="u-full-width" name="gbodyfat" min="1" max="{{ request.form['cbodyfat'] }}" value="{{request.form['gbodyfat']}}" id="gbodyfat"/>
+            <input required type="number" placeholder="Goal Bodyfat %" class="u-full-width" name="gbodyfat" min="1" value="{{request.form['gbodyfat']}}" id="gbodyfat"/>
+            <script>document.getElementById('gbodyfat').max=document.getElementById('cbodyfat').value-1</script>
 
             <input type="submit" value="Calculate" id="calc_btn"/>
             <br/>
