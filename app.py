@@ -43,15 +43,19 @@ def index():
                 glean_mass = round(glean_mass, 2)
                 goal_weight = round(goal_weight, 2)
                 weights = Data.query.order_by(Data.date_created.desc()).all()
-                return render_template('index.html', clean_mass = clean_mass, glean_mass = glean_mass, goal_weight = goal_weight, 
-                slow_tt6 = slow_tt6, fast_tt6 = fast_tt6, calories = calories, weights = weights)
+                context = {
+                    'weights': weights
+                } #TODO
+
+                return render_template('index.html.jinja', clean_mass = clean_mass, glean_mass = glean_mass, goal_weight = goal_weight, 
+                slow_tt6 = slow_tt6, fast_tt6 = fast_tt6, calories = calories, **context)
             else:
                 return 'Error: one or more inputs was not a number'
         except:
             return 'Error: could not add weight'
     else:
         weights = Data.query.order_by(Data.date_created.desc()).all()
-        return render_template('index.html', weights = weights)
+        return render_template('index.html.jinja', weights = weights)
 
 #form submission
 @app.route('/delete/<int:id>')
