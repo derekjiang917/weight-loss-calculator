@@ -77,9 +77,12 @@ def update(id):
             return redirect('/')
         except:
             return 'There was an issue updating your weight'
-
     else:
         return render_template('update.html', weight=weight)
+
+@app.route('/hello')
+def hello():
+    return 'Hello'
 
 if __name__ == "__main__":
     app.run(debug=True)
